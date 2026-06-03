@@ -1,0 +1,27 @@
+{
+  "overview": "A premium, fully responsive travel agency website for Hope Stone Tours & Travels — featuring 12 service categories, tour package showcases, contact section with WhatsApp and call integrations, floating action buttons, and a luxurious olive-green branded design.",
+  "features": [
+    "Full-width hero with WhatsApp and Call CTA buttons",
+    "12 service cards with hover effects",
+    "Tour packages showcase with 4 categories",
+    "Contact section with contact form and click-to-call",
+    "Always-visible floating WhatsApp and Call buttons",
+    "Responsive design for mobile, tablet, and desktop",
+    "Smooth scroll animations and premium transitions",
+    "About Us and Why Choose Us sections",
+    "Professional footer with quick links and social icons"
+  ],
+  "category": "business",
+  "tags": [
+    "travel",
+    "agency",
+    "tourism",
+    "visa",
+    "hajj",
+    "packages",
+    "responsive",
+    "premium",
+    "landing-page"
+  ],
+  "last_updated": "2026-05-15T21:15:37.269Z"
+}
