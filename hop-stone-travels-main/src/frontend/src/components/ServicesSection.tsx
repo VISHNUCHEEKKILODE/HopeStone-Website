@@ -1,3 +1,5 @@
+import VisaModal from "./VisaModal";
+import { useState } from "react";
 import {
   BookOpen,
   Bus,
@@ -104,6 +106,9 @@ const DELAY_CLASSES = [
 ] as const;
 
 export default function ServicesSection() {
+
+const [showVisaModal, setShowVisaModal] = useState(false);
+
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -191,10 +196,24 @@ export default function ServicesSection() {
           data-ocid="services.list"
         >
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
+            <ServiceCard
+                  key={service.title}
+                  service={service}
+                  index={index}
+                  onClick={
+                  service.title === "Visa Services"
+                    ? () => setShowVisaModal(true)
+                    : undefined
+                  }
+                />
           ))}
         </div>
       </div>
+
+      <VisaModal
+  open={showVisaModal}
+  onClose={() => setShowVisaModal(false)}
+/>
     </section>
   );
 }
@@ -202,16 +221,19 @@ export default function ServicesSection() {
 function ServiceCard({
   service,
   index,
+  onClick,
 }: {
   service: Service;
   index: number;
-}) {
+  onClick?: () => void;
+}){
   const Icon = service.icon;
   const delayClass = DELAY_CLASSES[index % DELAY_CLASSES.length];
 
   return (
     <div
       data-service-card
+      onClick={onClick}
       className={`group relative bg-white rounded-xl shadow-md overflow-hidden cursor-default flex flex-col transition-all duration-300 ${delayClass}`}
       style={{
         border: "1px solid rgba(168,181,96,0.18)",
