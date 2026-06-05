@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build && pnpm copy:env",
-    "copy:env": "cp src/frontend/env.json dist/",
+    "copy:env": "cp env.json dist/",
     "typecheck": "tsc --noEmit",
     "check": "biome check src",
     "fix": "biome check --write src"
