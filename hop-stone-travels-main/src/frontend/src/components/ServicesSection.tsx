@@ -1,4 +1,5 @@
 import VisaModal from "./VisaModal";
+import HajjUmraModal from "./HajjUmraModal";
 import { useState } from "react";
 import {
   BookOpen,
@@ -109,6 +110,8 @@ export default function ServicesSection() {
 
 const [showVisaModal, setShowVisaModal] = useState(false);
 
+const [showHajjModal, setShowHajjModal] = useState(false);
+
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -203,6 +206,8 @@ const [showVisaModal, setShowVisaModal] = useState(false);
                   onClick={
                   service.title === "Visa Services"
                     ? () => setShowVisaModal(true)
+                    : service.title === "Hajj & Umra Packages"
+                    ? () => setShowHajjModal(true)
                     : undefined
                   }
                 />
@@ -211,9 +216,13 @@ const [showVisaModal, setShowVisaModal] = useState(false);
       </div>
 
       <VisaModal
-  open={showVisaModal}
-  onClose={() => setShowVisaModal(false)}
-/>
+        open={showVisaModal}
+        onClose={() => setShowVisaModal(false)}
+      />
+      <HajjUmraModal
+        open={showHajjModal}
+        onClose={() => setShowHajjModal(false)}
+      />
     </section>
   );
 }
@@ -234,7 +243,7 @@ function ServiceCard({
     <div
       data-service-card
       onClick={onClick}
-      className={`group relative bg-white rounded-xl shadow-md overflow-hidden cursor-default flex flex-col transition-all duration-300 ${delayClass}`}
+      className={`group relative bg-white rounded-xl shadow-md overflow-hidden cursor-pointer flex flex-col transition-all duration-300 ${delayClass}`}
       style={{
         border: "1px solid rgba(168,181,96,0.18)",
       }}
